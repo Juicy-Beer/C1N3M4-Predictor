@@ -1,9 +1,5 @@
 # C1N3M4 Traffic Predictor
 
-A lightweight, offline first tool for tracking and forecasting website visitors and page views.
-
-## Files
-
 | File | Purpose |
 |------|---------|
 | `index.html` | Page structure and layout |
