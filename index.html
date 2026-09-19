@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>C1N3M4 Traffic Predictor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>C1N3M4 Predictor</h1>
+  <p class="subtitle">Visitor &amp; page view forecaster</p>
+
+  <div class="card">
+    <div class="section-label">Snapshot</div>
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num" id="visitors">—</div>
+        <div class="stat-label">Visitors</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="views">—</div>
+        <div class="stat-label">Views</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num green" id="vRate">—</div>
+        <div class="stat-label">Visitors/hr</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num green" id="pRate">—</div>
+        <div class="stat-label">Views/hr</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Forecast</div>
+    <div class="mode-toggle">
+      <button class="mode-btn active" data-mode="linear"      onclick="setMode('linear')">Linear</button>
+      <button class="mode-btn"        data-mode="exponential" onclick="setMode('exponential')">Exponential</button>
+    </div>
+    <div id="predictions"></div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Add data point</div>
+    <div class="form-grid">
+      <div>
+        <label for="dateInput">Date</label>
+        <input type="date" id="dateInput">
+      </div>
+      <div>
+        <label for="timeInput">Time</label>
+        <input type="time" id="timeInput">
+      </div>
+    </div>
+    <div class="form-grid">
+      <div>
+        <label for="visitorsInput">Visitors</label>
+        <input type="number" id="visitorsInput" placeholder="e.g. 475" min="0">
+      </div>
+      <div>
+        <label for="viewsInput">Page views</label>
+        <input type="number" id="viewsInput" placeholder="e.g. 2558" min="0">
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="addPoint()">Add point</button>
+  </div>
+
+  <div class="card">
+    <div class="section-label">History</div>
+    <div id="historyList"></div>
+    <button class="btn btn-ghost" onclick="clearAll()">Clear all data</button>
+  </div>
+
+  <p class="note">Data is saved locally in your browser only.</p>
+
+  <script src="app.js"></script>
+</body>
+</html>
